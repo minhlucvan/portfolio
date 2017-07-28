@@ -1,19 +1,31 @@
 import React from 'react';
+import classNames from 'classnames';
+import getAnimation from './animations';
+import randomColor from 'randomcolor';
+
 import './Transition.scss';
+
+const DURATION = 1000;
 
 class Transition extends React.Component {
 
     constructor(props) {
         super(props);
 
+        const transition = getAnimation();
+
         this.state = {
+          current: true,  
           entering: true,
-          leaving: false
+          leaving: false,
+          inClass: transition.in,
+          outClass: transition.out,
+          bg: randomColor()
         };
     }
 
     componentWillAppear(cb) {
-      console.log('componentWillAppear');
+    //   console.log('componentWillAppear');
       setTimeout(cb, 0);
     }
 
@@ -22,30 +34,39 @@ class Transition extends React.Component {
     // }
 
     componentWillEnter(cb) {
-      console.log('componentWillEnter');
-      setTimeout(cb, 0);
+    //   console.log('componentWillEnter');
+      this.setState(() => ({ entering: true}));
+      setTimeout(cb, DURATION);
     }
 
     componentDidEnter() {
         //do stuff on enter
-        console.log('componentDidEnter');
+        this.setState(() => ({ entering: false, current: true}));
+        // console.log('componentDidEnter');
     }
 
     componentWillLeave(cb) {
-      console.log('componentWillLeave');
-      // if(this.mounted)
-
-      setTimeout(cb, 0);
+        // console.log('componentWillLeave');
+        this.setState(() => ({ leaving: true }));
+        setTimeout(cb, DURATION);
     }
 
     componentDidLeave() {
-      console.log('componentDidLeave');
-        //do stuff on leave
+    //   console.log('componentDidLeave');
+      //do stuff on leave
+      this.setState(() => ({ leaving: false, current: false}));
     }
 
     render() {
         return (
-            <div className="example-app__transition">{this.props.children}</div>
+            <div className={classNames({
+                'pt-page': true,
+                'pt-page-current': this.state.current,
+                [this.state.inClass]: this.state.entering,
+                [this.state.outClass]: this.state.leaving
+            })}>
+                {this.props.children}
+            </div>
         );
     }
 

@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.5",
+    "randomcolor": "^0.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2",
+    "react-router-v4-transition": "^0.1.8",
     "react-scripts": "1.0.10",
-    "react-transition-group": "^2.2.0"
+    "react-transition-group": "^2.2.0",
+    "semantic-ui-css": "^2.2.11",
+    "semantic-ui-react": "^0.71.2"
   },
   "scripts": {
     "start": "react-scripts start",

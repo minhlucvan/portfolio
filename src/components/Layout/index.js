@@ -1,25 +1,17 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { RouteHandler } from 'react-router';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
+import React, { Component } from 'react'
+import Nav from '../Nav';
 
-class Layout extends Component {
+export default class Layout extends Component {
+  state = {}
+
   render() {
-    var name = this.context.router.getCurrentPath();
     return (
       <div>
-      	<Link to="home">
-      		home
-        </Link>
-        <br />
-        <Link to="about">
-      		about
-        </Link>
-      	<hr />
-          layout
+        <Nav />
+        <main>
+          {this.props.children}
+        </main>
       </div>
-    );
+    )
   }
 }
-Layout.contextTypes = {
-};
