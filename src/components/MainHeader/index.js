@@ -44,7 +44,8 @@ class MainHeaderComponent extends Component {
           className="home__header__bg"
           style={{ 
             filter: `blur(${this.props.blur}px) brightness(${this.props.bright})`,
-            zIndex: this.props.interactive?999:-1
+            zIndex: this.props.interactive?'999':'-1',
+            visibility: this.props.show?'visible':'hidden',
            }} vertical>
         <Grid container >
           <Grid.Row>
@@ -172,12 +173,16 @@ class MainHeaderComponent extends Component {
 
 MainHeaderComponent.propTypes = {
   blur: propTypes.number,
-  bright: propTypes.number
+  bright: propTypes.number,
+  noMargin: propTypes.bool,
+  show: propTypes.bool
 };
 
 MainHeaderComponent.defaultProps = {
   blur: 0,
-  bright: 1
+  bright: 1,
+  noMargin: false,
+  show: true
 }
 
 export default MainHeaderComponent;

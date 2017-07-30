@@ -9,7 +9,6 @@ import './Home.css';
 class HomeComponent extends Component {
   constructor(props) {
     super(props);
-    
     this.paralax = null;
     this.state = {
     };
@@ -25,9 +24,15 @@ class HomeComponent extends Component {
 
   render() {
    return (
-    <div ref={ref => this.paralax = ref} className="paralax-container">
+    <div ref={ref => this.paralax = ref}
+         className="paralax-container">
       <div className="main-float-header">
         <MainHeader blur={this.props.headerBlur} bright={this.props.headerBright} interactive={this.props.headerInteractive} />  
+      </div>
+      <div style={{
+        paddingLeft: '10px'
+      }}>
+        <MainHeader show={this.props.headerInteractive} interactive={this.props.headerInteractive} noMargin={true} />  
       </div>
         <div className="main-float-content">
         <Segment style={{ padding: '8em 0em' }} vertical>
@@ -112,11 +117,14 @@ class HomeComponent extends Component {
 
 HomeComponent.propTypes = {
   headerBlur: propTypes.number,
-  headerBright: propTypes.number
+  headerBright: propTypes.number,
+  headerInteractive: propTypes.bool
 };
 
 HomeComponent.defaultProps = {
-  headerBright: 1
+  headerBright: 1,
+  headerBlur: 0,
+  headerInteractive: true 
 }
 
 export default HomeComponent;
