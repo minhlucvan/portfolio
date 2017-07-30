@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+  Segment,
+  Grid
+} from 'semantic-ui-react';
+
+import './Posts.css';
 
 class PostsComponent extends Component {
   constructor(props) {
@@ -10,9 +16,13 @@ class PostsComponent extends Component {
 
   render() {
    return (
-      <div>
-      	Posts!
-      </div>
+      <Segment 
+        className="posts__header__bg"
+        style={{ 
+          padding: '8em 0em' }} vertical>
+        <Grid container >
+        </Grid>
+      </Segment>
     );
   }
 }

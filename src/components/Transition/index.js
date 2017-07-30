@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import getAnimation from './animations';
 import randomColor from 'randomcolor';
 
-import './Transition.scss';
+import './Transition.css';
 
 const DURATION = 1000;
 
@@ -26,7 +26,7 @@ class Transition extends React.Component {
 
     componentWillAppear(cb) {
     //   console.log('componentWillAppear');
-      setTimeout(cb, 0);
+        setTimeout(cb, 0);
     }
 
     // componentDidAppear() {
@@ -35,7 +35,13 @@ class Transition extends React.Component {
 
     componentWillEnter(cb) {
     //   console.log('componentWillEnter');
-      this.setState(() => ({ entering: true}));
+      const transition = getAnimation();
+
+      this.setState(() => ({ 
+          entering: true,
+          inClass: transition.in, 
+          outClass: transition.out
+        }));
       setTimeout(cb, DURATION);
     }
 

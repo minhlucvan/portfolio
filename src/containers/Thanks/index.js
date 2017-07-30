@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+  Segment,
+  Grid
+} from 'semantic-ui-react';
+
+import './Thanks.css'
 
 class ThanksComponent extends Component {
   constructor(props) {
@@ -10,9 +16,13 @@ class ThanksComponent extends Component {
 
   render() {
    return (
-      <div>
-      	Thanks!
-      </div>
+      <Segment 
+        className="thanks__header__bg"
+        style={{ 
+          padding: '8em 0em' }} vertical>
+        <Grid container >
+        </Grid>
+      </Segment>
     );
   }
 }

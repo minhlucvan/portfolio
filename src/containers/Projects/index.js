@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+  Segment,
+  Grid
+} from 'semantic-ui-react';
+
+import './Projects.css'
 
 class ProjectsComponent extends Component {
   constructor(props) {
@@ -10,9 +16,13 @@ class ProjectsComponent extends Component {
 
   render() {
    return (
-      <div>
-      	Projects!
-      </div>
+    <Segment 
+      className="projects__header__bg"
+      style={{ 
+        padding: '8em 0em' }} vertical>
+      <Grid container >
+      </Grid>
+    </Segment>
     );
   }
 }

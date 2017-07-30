@@ -31,7 +31,7 @@ class Routes extends React.Component {
                 </Route>
                 <Route path="/techs">
                     <Transition>
-                        <Contact />
+                        <Techs />
                     </Transition>
                 </Route>
                 <Route path="/contacts">
